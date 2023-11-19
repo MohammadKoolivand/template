@@ -1,20 +1,40 @@
-import type { Config } from 'tailwindcss'
-
+import { fontFamily } from "tailwindcss/defaultTheme";
+import type { Config } from "tailwindcss";
 const config: Config = {
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      aspectRatio: {
+        "48": ".4725",
+        "3.42": "3.42",
+        ".8": ".8",
+        "1.7": "1.7",
+        ".46": ".46",
+      },
+      fontFamily: {
+        montserrat: ["var(--montserrat-font)", ...fontFamily.serif],
+        oswald: ["var(--oswald-font)", ...fontFamily.serif],
+      },
+      screens: {
+        "3xl": "1920px",
+        "2xl": "1440px",
+        tablet: "550px",
+        xs: "500px",
+      },
+      colors: {
+        blue: {
+          50: "#F3F9FF",
+          100: "#93C4FA",
+          200: "#4F95E5",
+        },
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+
+export default config;

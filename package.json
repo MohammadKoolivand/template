@@ -1,27 +1,45 @@
 {
-  "name": "opingo-web",
+  "name": "passive-social",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install",
+    "pre-commit": "npx tsc --noEmit && eslint . && prettier --write ."
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.6"
+    "@svgr/webpack": "^7.0.0",
+    "@types/react-slick": "^0.23.11",
+    "clsx": "^1.2.1",
+    "dotenv": "^16.3.1",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
+    "moment": "^2.29.4",
+    "next": "13.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-ga": "^3.3.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "typescript": "5.0.4"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10",
-    "postcss": "^8",
-    "tailwindcss": "^3",
-    "eslint": "^8",
-    "eslint-config-next": "13.5.6"
+    "@types/node": "18.15.12",
+    "@types/react": "18.0.37",
+    "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "autoprefixer": "^10.4.14",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^8.0.3",
+    "postcss": "8.4.23",
+    "prettier": "^2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.6",
+    "tailwindcss": "3.3.1"
+  },
+  "resolutions": {
+    "@types/react": "18.0.37"
   }
 }
