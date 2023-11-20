@@ -2,6 +2,7 @@ import { Menu } from "@/components/Menu";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Montserrat, Lato, Oswald } from "next/font/google";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 const montserrat = Montserrat({
@@ -47,8 +48,19 @@ const App = ({ Component, pageProps }: AppProps) => {
             {label}
           </h1>
           <div className="mt-[10px] h-[12px] w-[600px] max-w-[80%] bg-[#ff7361]" />
+          <Image
+            onClick={() => {
+              let pageHeight = window.innerHeight;
+              window.scrollBy(0, pageHeight - 56);
+            }}
+            src="/images/down.png"
+            alt="passive social"
+            width={40}
+            height={40}
+            className="absolute bottom-4 cursor-pointer opacity-70 hover:opacity-100"
+          />
         </div>
-        <div className="p-[30px]">
+        <div className="p-[50px] max-sm:p-[20px]" id="content">
           <Component {...pageProps} />
           <div className="mt-[30px] flex flex-col">
             <span className="text-[11pt] font-[400]">
