@@ -66,12 +66,12 @@ const App = ({ Component, pageProps }: AppProps) => {
             <span className="text-[11pt] font-[400]">
               © 2023 Passive Social, Inc. All rights reserved.
             </span>
-            <span className="text-[11pt] font-[400]">
+            {/* <span className="text-[11pt] font-[400]">
               Address: 1111B S Governors Ave, Dover, DE 19904
             </span>
             <span className="text-[11pt] font-[400]">
               Contact: +1(217)979-3176
-            </span>
+            </span> */}
           </div>
         </div>
       </main>
