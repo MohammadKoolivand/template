@@ -13,8 +13,8 @@ const links: LinkType[] = [
     label: "Home",
     href: "/",
   },
-  { label: "About Us", href: "/about-us" },
-  { label: "Contact Us", href: "/contact-us" },
+  // { label: "About Us", href: "/about-us" },
+  // { label: "Contact Us", href: "/contact-us" },
 ];
 
 const Menu = () => {
@@ -37,8 +37,7 @@ const Menu = () => {
       <div
         className={clsx("sticky w-full max-sm:hidden", {
           "bg-white ": scrollY > 0,
-        })}
-      >
+        })}>
         <DesktopMenu links={links} />
       </div>
       <div className="w-full sm:hidden">
