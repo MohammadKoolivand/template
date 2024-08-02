@@ -16,7 +16,7 @@ const config: Config = {
         ".46": ".46",
       },
       fontFamily: {
-        montserrat: ["var(--montserrat-font)", ...fontFamily.serif],
+        poppins: ["var(--poppins-font)", ...fontFamily.serif],
         oswald: ["var(--oswald-font)", ...fontFamily.serif],
       },
       screens: {

@@ -1,4 +1,6 @@
-import User from "../../models/user.js";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from '../../models/user.js';
 
 export const GetSite = (req, res) => {
   try {
@@ -8,56 +10,45 @@ export const GetSite = (req, res) => {
   }
 };
 
-export const SignUp = (req, res) => {
-  var { serverErrorMessage, SuccessSave } = req.locale;
+export const SignUp = async (req, res) => {
+  // const { serverErrorMessage, SuccessSave } = req.locale;
   try {
     // get request body
-    var { firstName, lastName, email, password, profileUrl } = req.body;
+    const { firstName, lastName, email, password, profileUrl } = req.body;
 
     // check user exist
-    User.findOne({ email: email }, (err, userExisted) => {
-      if (err) {
-        return res.status(500).json({ message: err });
-      }
-      if (userExisted) {
-        return res.status(400).json({ message: "user exists" });
-      }
+    const userExisted = await User.findOne({ email });
+    if (userExisted) {
+      return res.status(400).json({ message: "user existsfdgdfg" });
+    }
 
-      // hash password
-      bcrypt.hash(password, bcrypt.genSaltSync(10), (err, hash) => {
-        if (err) {
-          return res.status(500).json({ message: err });
-        }
+    // hash password
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(password, salt);
 
-        // save user
-        var newUser = new User({
-          firstName,
-          lastName,
-          email,
-          password: hash,
-          profileUrl
-        });
-        newUser.save((err, savedUser) => {
-          if (err) {
-            return res.status(500).json({ message: err });
-          }
-          //create token
-          const token = jwt.sign(
-            { userID: savedUser._id, date: new Date() },
-            process.env.JWT_SECRET_KEY
-          );
-          savedUser.tokens = [...savedUser.tokens, token];
-
-          savedUser.save((err) => {
-            if (err) {
-              return res.status(500).json({ message: err });
-            }
-            return res.status(200).json({ token: token, message: SuccessSave });
-          });
-        });
-      });
+    // save user
+    const newUser = new User({
+      firstName,
+      lastName,
+      email,
+      password: hash,
+      profileUrl
     });
+
+    const savedUser = await newUser.save();
+
+    // create token
+    const token = jwt.sign(
+      { userID: savedUser._id, date: new Date() },
+      process.env.JWT_SECRET_KEY
+    );
+    savedUser.tokens = [...savedUser.tokens, token];
+    console.log('savedUser.tokens', savedUser)
+
+    await savedUser.save();
+
+    return res.status(200).json({ token: token, message: 'SuccessSave' });
   } catch (e) {
     return res.status(500).json({ message: e });
   }
-};
+}

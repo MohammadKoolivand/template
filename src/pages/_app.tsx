@@ -1,7 +1,7 @@
 import { Menu } from "@/components/menu";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Montserrat, Oswald } from "next/font/google";
+import { Oswald, Poppins } from "next/font/google";
 import { store } from "@/redux/Store";
 import { useRouter } from "next/router";
 import { Provider } from "react-redux";
@@ -9,7 +9,7 @@ import MainLayout from "@/components/layout";
 import LoginContextProvider from "@/context/loginContext";
 import FetchContextProvider from "@/context/fetchContext";
 
-const montserrat = Montserrat({
+const poppins = Poppins({
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
 });
@@ -39,7 +39,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       <style jsx global>
         {`
           :root {
-            --montserrat-font: ${montserrat.style.fontFamily};
+            --poppins-font: ${poppins.style.fontFamily};
             --oswald-font: ${oswald.style.fontFamily};
           }
         `}
