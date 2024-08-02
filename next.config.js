@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const dotenv = require("dotenv");
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const nextConfig = {
   reactStrictMode: true,
   images: {

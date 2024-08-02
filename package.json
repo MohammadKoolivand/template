@@ -11,22 +11,27 @@
     "pre-commit": "npx tsc --noEmit && eslint . && prettier --write ."
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.7",
     "@svgr/webpack": "^7.0.0",
     "@types/react-slick": "^0.23.11",
     "clsx": "^1.2.1",
     "dotenv": "^16.3.1",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "js-cookie": "^3.0.5",
     "moment": "^2.29.4",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-ga": "^3.3.1",
+    "react-redux": "^9.1.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.12",
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "18.15.12",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",

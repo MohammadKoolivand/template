@@ -1,9 +1,9 @@
-const en = require("../localization/en");
-const fa = require("../localization/fa");
+import en from '../localization/en.js';
+import fa from '../localization/fa.js';
 
-module.exports = function (req, res, next) {
-  var lang = req.headers.localization;
-  req.locale = lang === "fa" ? fa : en;
+export default function (req, res, next) {
+  const lang = req.headers.localization;
+  req.locale = lang === 'fa' ? fa : en;
   req.lang = lang;
   next();
-};
+}

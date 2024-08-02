@@ -1,4 +1,4 @@
-module.exports = {
+const en = {
   InactiveUserError: "User is not Active",
   serverErrorMessage: "server error",
   mobileOrEmailErrorMessage: "mobileOrEmail invalid",
@@ -20,3 +20,4 @@ module.exports = {
   RequestExists: "Request already sent. please wait",
 
 };
+export default en

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
 import { LinkType } from "./Menu";
 
 interface DesktopMenuProps {
@@ -18,7 +17,7 @@ const DesktopMenu = ({ links }: DesktopMenuProps) => {
   return (
     <div
       className={clsx(
-        "flex h-[56px] w-full flex-row items-center justify-between px-4"
+        "m-auto flex h-[56px] w-11/12 flex-row items-center justify-between px-4"
         // {
         //   "bg-white ": !isSmalSizeShow,
         // }
@@ -65,10 +64,10 @@ const DesktopMenu = ({ links }: DesktopMenuProps) => {
           </button>
         </Link>
         <Link
-          href={"/register"}
+          href={"/signup"}
           onClick={() => setActiveLink(links[0].href)}
           className="flex flex-row items-center gap-3">
-          <button>Register</button>
+          <button>Sign up</button>
         </Link>
       </div>
     </div>

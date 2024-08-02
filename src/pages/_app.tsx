@@ -1,9 +1,13 @@
-import { Menu } from "@/components/Menu";
+import { Menu } from "@/components/menu";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Montserrat, Lato, Oswald } from "next/font/google";
-import Image from "next/image";
+import { Montserrat, Oswald } from "next/font/google";
+import { store } from "@/redux/Store";
 import { useRouter } from "next/router";
+import { Provider } from "react-redux";
+import MainLayout from "@/components/layout";
+import LoginContextProvider from "@/context/loginContext";
+import FetchContextProvider from "@/context/fetchContext";
 
 const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -40,18 +44,15 @@ const App = ({ Component, pageProps }: AppProps) => {
           }
         `}
       </style>
-      <main className="font-montserrat">
-        <Menu />
-        {/* <div className="flex h-screen w-full flex-col items-center justify-center bg-cover bg-center bg-no-repeat opacity-50" /> */}
-        <div className="absolute top-0 z-[9] flex h-screen w-full flex-col items-center justify-center ">
-          <h1 className="font-oswald text-[72pt] font-[400] leading-[1.2] text-[#7a44ed] max-md:text-[50pt] max-sm:text-[30pt]">
-            {label}
-          </h1>
-        </div>
-        <div className="p-[50px] max-sm:p-[20px]" id="content">
-          <Component {...pageProps} />
-        </div>
-      </main>
+      <LoginContextProvider>
+        <FetchContextProvider>
+          <MainLayout>
+            <Provider store={store}>
+              <Component {...pageProps} />
+            </Provider>
+          </MainLayout>
+        </FetchContextProvider>
+      </LoginContextProvider>
     </>
   );
 };

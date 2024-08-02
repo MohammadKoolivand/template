@@ -1,9 +1,9 @@
-const express = require("express");
+import express from 'express';
+import AppRouter from './app/index.js';
 
 const Router = express.Router();
 
-// config app router
-const AppRouter = require("./app");
-Router.use("/app", AppRouter);
+// Config app router
+Router.use('/app', AppRouter);
 
-module.exports = Router;
+export default Router;

@@ -1,4 +1,4 @@
-module.exports = {
+const fa = {
   InactiveUserError: "کاربر غیرفعال می باشد",
   serverErrorMessage: "خطای سرور",
   mobileOrEmailErrorMessage: "فرمت ایمیل یا شماره موبایل اشتباه می باشد",
@@ -19,3 +19,4 @@ module.exports = {
   FollowerExists: "شما قبلا این کاربر را دنبال کرده اید!",
   RequestExists: "درخواست ارسال شده است. لطفا منتظر نتیجه بمانید",
 };
+export default fa

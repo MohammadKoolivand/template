@@ -1,11 +1,13 @@
-const express = require("express");
+import express from 'express';
+import { GetSite, SignUp } from '../../controllers/app/siteController.js';
 
 const AppRouter = express.Router();
 
-// config Routes
-const SiteController = require("../../controllers/app/siteController");
+// Get Methods
+AppRouter.get('/', GetSite);
 
 
-// GET Method
-AppRouter.get("/", SiteController.GetSite);
-module.exports = AppRouter;
+// POST Methods
+AppRouter.post('/signup', SignUp);
+
+export default AppRouter;
